@@ -8,7 +8,7 @@ int main()
     object.display();
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    object.removefl();
+    object.removefl(object.head, false);
 
     object.display();
     

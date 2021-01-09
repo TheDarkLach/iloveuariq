@@ -33,15 +33,43 @@ void dlist::build() {
 }
 
 void dlist::display() {
+	//Debug
+	//int count = 0;
+		
   node* current = head;
   while (current != NULL) {
-    cout << current->data << " ";
+	  cout << current->data << " ";
+    //cout << current->data << " (" << count << ") ";
     current = current->next;
+	//count++;
   }
   cout << endl;
 }
 
-void dlist::removefl()
+void dlist::removefl(node* current_node, bool edited_head)
 {
-  //remove first and last
+	if(!edited_head)
+	{
+		node* new_head = head->next;
+		head           = new_head;
+		head->previous = NULL;
+		
+		dlist::removefl(head->next, true);
+	}
+	else if(current_node == tail)
+	{
+		node* new_tail = tail->previous;
+		tail           = new_tail;
+		tail->next     = NULL;
+		
+		//head->previous = tail;
+		//tail->next     = head;
+		
+		return;
+	}
+	else
+	{
+		dlist::removefl(current_node->next, true);
+	}
 }
+

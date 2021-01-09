@@ -25,8 +25,9 @@ class dlist
 
      /* *****************YOUR TURN! ******************************** */
      /* place your prototype here */
-        void removefl();
+        void removefl(node* current_node, bool edited_head);
+	node * head;
      private:
-         node * head;   //notice there is both a head
+         //node * head;   //notice there is both a head
          node * tail;   //and a tail, common for DLL
 };
